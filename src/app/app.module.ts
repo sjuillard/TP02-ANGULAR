@@ -3,14 +3,22 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { TetiereComponent } from './tetiere/tetiere.component';
+import { FooterComponent } from './footer/footer.component';
+import { FormClientComponent } from './form-client/form-client.component';
+import { FormControl } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TetiereComponent,
+    FooterComponent,
+    FormClientComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormControl
   ],
   providers: [],
   bootstrap: [AppComponent]
