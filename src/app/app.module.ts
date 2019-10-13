@@ -6,19 +6,22 @@ import { AppComponent } from './app.component';
 import { TetiereComponent } from './tetiere/tetiere.component';
 import { FooterComponent } from './footer/footer.component';
 import { FormClientComponent } from './form-client/form-client.component';
-import { FormControl } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { VisualisationComponent } from './visualisation/visualisation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TetiereComponent,
     FooterComponent,
-    FormClientComponent
+    FormClientComponent,
+    VisualisationComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormControl
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
