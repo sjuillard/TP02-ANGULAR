@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms'
 import { Router } from "@angular/router";
 import {Client} from "../client.model";
+import { Data } from './dataProvider'
 
 @Component({
   selector: 'app-form-client',
@@ -15,7 +16,7 @@ export class FormClientComponent implements OnInit {
   @Input() client: Client;
   @Output() submitForm: EventEmitter<Client> = new EventEmitter<Client>();
 
-  constructor(private router: Router) { 
+  constructor(private router: Router, private data: Data) { 
     this.formClient = new FormGroup( {
       nom: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z]*$')]),
       prenom: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z]*$')]),
@@ -57,6 +58,7 @@ export class FormClientComponent implements OnInit {
     console.log(this.client);
     
     this.submitForm.emit(this.client);
+    this.data.storage = this.client;
     this.router.navigate(['visualisation']);
   }
 

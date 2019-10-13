@@ -9,7 +9,7 @@ import { Client } from './client.model';
 export class AppComponent {
   title = 'TP02-Angular';
 
-  private client: Client = new Client();
+  client: Client = new Client();
 
   onClientRegister(client: Client) {
     this.client = client;

@@ -8,6 +8,7 @@ import { FooterComponent } from './footer/footer.component';
 import { FormClientComponent } from './form-client/form-client.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { VisualisationComponent } from './visualisation/visualisation.component';
+import { Data } from './form-client/dataProvider';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { VisualisationComponent } from './visualisation/visualisation.component'
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [Data],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
