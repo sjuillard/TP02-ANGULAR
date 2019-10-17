@@ -9,6 +9,7 @@ import { FormClientComponent } from './form-client/form-client.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { VisualisationComponent } from './visualisation/visualisation.component';
 import { Data } from './form-client/dataProvider';
+import { PhoneNumberPipe } from './phone-number.pipe';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { Data } from './form-client/dataProvider';
     TetiereComponent,
     FooterComponent,
     FormClientComponent,
-    VisualisationComponent
+    VisualisationComponent,
+    PhoneNumberPipe
   ],
   imports: [
     BrowserModule,
