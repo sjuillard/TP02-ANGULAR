@@ -3,5 +3,4 @@ export class Produit {
     prix : number;
     taille : number;
     categorie : string;
-    couleurs : string[];
 }

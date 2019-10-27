@@ -1,25 +1,14 @@
-{
-    "produits": [
-        {
-            "nom" : "Balle Select",
-            "prix" : "30",
-            "taille" : 3,
-            "categorie" : "balles", 
-            "couleur": [
-                "violet"
-            ] 
-        },
-        {
-            "nom": "Chaussures Kipsta",
-            "pxHT" : "105",
-            "pxTTC" : "120",
-            "taille" : 45,
-            "categorie" : "chaussures",
-            "couleur": [
-                "blanc", 
-                "noir",
-                "vert"
-            ] 
-        }
-    ]
-}
+[
+    {
+        "nom" : "Balle Select",
+        "prix" : "30",
+        "taille" : 3,
+        "categorie" : "balles"
+    },
+    {
+        "nom": "Chaussures Kipsta",
+        "prix" : "105",
+        "taille" : 45,
+        "categorie" : "chaussures"
+    }
+]
