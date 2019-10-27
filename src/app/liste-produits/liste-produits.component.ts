@@ -26,7 +26,7 @@ export class ListeProduitsComponent implements OnInit {
     ); 
   }
 
-  rechercher(leFiltre : string) {
+  rechercherParNom(leFiltre : string) {
     this.filtre = leFiltre;
     this.isEmpty = false;
     this.produitsFiltres = [];

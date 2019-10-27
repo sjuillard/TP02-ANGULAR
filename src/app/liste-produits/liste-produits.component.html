@@ -1,10 +1,11 @@
-<app-filtre-produits (filter)="rechercher($event)" ></app-filtre-produits>
+<app-filtre-produits (filter)="rechercherParNom($event)" ></app-filtre-produits>
 <div class="card-deck">
   <div class="col-4 d-flex align-items-stretch" *ngFor="let p of produitsFiltres">
   <div class="card mt-5">
     <div class="card-block">
-      <h4 class="card-title">{{p.nom}}</h4>
-      <p class="card-text">Prix : {{p.prix}}€</p>
+      <h4 class="card-title">{{p.nom}} <span class='categorie'>({{p.categorie}})</span></h4> 
+      
+      <p class="card-text">Taille : {{p.taille}} <br/> Prix : {{p.prix}}€</p>
     </div>
   </div> 
   </div> 
