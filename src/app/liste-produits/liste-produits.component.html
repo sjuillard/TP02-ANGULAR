@@ -4,8 +4,8 @@
   <div class="card mt-5">
     <div class="card-block">
       <h4 class="card-title">{{p.nom}} <span class='categorie'>({{p.categorie}})</span></h4> 
-      
-      <p class="card-text">Taille : {{p.taille}} <br/> Prix : {{p.prix}}€</p>
+      <p class="card-text">Prix : {{p.prix}}€</p>
+      <button [routerLink]="['/detail', p.nom, p.prix, p.taille, p.categorie]">Voir détails</button>
     </div>
   </div> 
   </div> 

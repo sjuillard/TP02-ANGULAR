@@ -1,0 +1,13 @@
+<h4>Panier</h4>
+
+<div class="col-4 d-flex align-items-stretch" *ngFor="let p of articles | async">
+    <div class="card mt-5">
+        <div class="card-block">
+            <h4 class="card-title">{{p.nom}} <span class='categorie'>({{p.categorie}})</span></h4> 
+            
+            <p class="card-text">Taille : {{p.taille}} <br/> Prix : {{p.prix}}€</p>
+            <button (click)="onDelClick(p)">Supprimer du panier</button>
+        </div>
+    </div> 
+</div>
+<div *ngIf="isEmpty" class="alert alert-primary">Aucun produit trouvé.</div>
