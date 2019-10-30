@@ -1,26 +1,30 @@
 [
     {
-        "nom" : "Balle Select",
-        "prix" : "30",
-        "taille" : "3",
-        "categorie" : "balles"
-    },
-    {
-        "nom": "Chaussures Kempa",
-        "prix" : "105",
-        "taille" : "45",
-        "categorie" : "chaussures"
-    },
-    {
-        "nom" : "Maillot Kipsta vert",
+        "id" : "001",
+        "nom" : "Pull Sool",
         "prix" : "45",
         "taille" : "L",
-        "categorie" : "Vêtement"
+        "categorie" : "pull"
     },
     {
-        "nom": "Short Kipsta vert",
-        "prix" : "25",
+        "id" : "002",
+        "nom": "T-Shirt Sool",
+        "prix" : "15",
         "taille" : "L",
-        "categorie" : "Vêtement"
+        "categorie" : "tshirt"
+    },
+    {
+        "id" : "003",
+        "nom" : "Veste Sool",
+        "prix" : "70",
+        "taille" : "L",
+        "categorie" : "veste"
+    },
+    {
+        "id" : "004",
+        "nom": "Pantalon Sool",
+        "prix" : "35",
+        "taille" : "L",
+        "categorie" : "pantalon"
     }
 ]

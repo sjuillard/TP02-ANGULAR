@@ -1,0 +1,13 @@
+
+<div class="container">
+    <div class="row justify-content-md-center">
+            <div class="col col-lg-6">
+                <h4>Descriptif produit</h4>
+                <p>Catégorie : {{selectedArticle.categorie}}</p>
+                <p>Nom : {{selectedArticle.nom}}</p>
+                <p>Prix : {{selectedArticle.prix}} €</p>
+                <p>Taille : {{selectedArticle.taille}}</p>
+                <button (click)="onAddClick(selectedArticle.id, selectedArticle.nom, selectedArticle.categorie, selectedArticle.prix, selectedArticle.taille)">Ajouter au panier</button>
+            </div>
+    </div>
+</div>

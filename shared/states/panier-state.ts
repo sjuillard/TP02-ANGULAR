@@ -28,9 +28,8 @@ export class PanierState {
  @Action(DelProduit)
     del ({getState, patchState }: StateContext<PanierStateModel>, { payload }: AddProduit) {
         const state = getState();
-        
         patchState({
-            panier: [...(state.panier.filter(p => p==payload).slice(0,-1))]
+            panier: [...(state.panier.filter(p => !(p.nom.match(payload.nom))))]
         });
     }   
 }

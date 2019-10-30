@@ -5,7 +5,8 @@
     <div class="card-block">
       <h4 class="card-title">{{p.nom}} <span class='categorie'>({{p.categorie}})</span></h4> 
       <p class="card-text">Prix : {{p.prix}}€</p>
-      <button [routerLink]="['/detail', p.nom, p.prix, p.taille, p.categorie]">Voir détails</button>
+      <button [routerLink]="['detail', p.id]">Voir détails</button>
+      <button (click)="onAddClick(p.id, p.nom, p.categorie, p.prix, p.taille)">Ajouter au panier</button>
     </div>
   </div> 
   </div> 

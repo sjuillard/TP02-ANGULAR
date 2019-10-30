@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngxs/store';
-import { Produit } from '../../../shared/models/produit';
+import { Produit } from '../../../../../shared/models/produit';
 import { Observable } from 'rxjs';
 import { DelProduit } from 'shared/actions/delProduit-action';
 

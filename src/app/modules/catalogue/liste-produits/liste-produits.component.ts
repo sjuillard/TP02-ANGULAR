@@ -1,8 +1,8 @@
 import { Component, OnInit , EventEmitter, Input} from '@angular/core';
 import { ListeProduitsService } from './liste-produits.service';
-import { Produit } from '../models/produit';
+import { Produit } from '../../../../models/produit.model';
 import { Store } from '@ngxs/store';
-import { AddProduit } from '../../../shared/actions/produit-action';
+import { AddProduit } from '../../../../../shared/actions/produit-action';
 
 @Component({
   selector: 'app-liste-produits',
@@ -47,8 +47,11 @@ export class ListeProduitsComponent implements OnInit {
       this.isEmpty = true;
   }
 
-  name : String = "testName";
-  ref : String = "testRef";
-
-
+  onAddClick(id, nom, categorie, prix, taille)  {
+    this.addProduit(id, nom, prix, categorie, taille);
+  }
+  
+  addProduit(id, nom, prix, categorie, taille) { 
+    this.store.dispatch(new AddProduit({id, nom, prix, categorie, taille})); 
+  }
 }
