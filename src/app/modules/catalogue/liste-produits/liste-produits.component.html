@@ -1,0 +1,32 @@
+<h1 class='title'>Catalogue</h1>
+<app-filtre-produits (filter)="rechercherParNom($event)" ></app-filtre-produits>
+<!--<div class="card-deck content">-->
+  <div class="card mb-6 card-produit" *ngFor="let p of produitsFiltres">
+      <div class="row no-gutters">
+        <div class="col-md-4">
+          <img class="card-img image" src='../../../../assets/images/{{p.src}}' alt="image">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">{{p.nom}}</h5>
+            <p class="card-text">Prix : {{p.prix}}€</p>
+            <p class="card-text"><small class="text-muted">{{p.categorie}}</small></p>
+            <button [routerLink]="['detail', p.id]" type="button" class="btn btn-secondary btn-catalogue">Voir détails</button>
+            <button  type="button" class="btn btn-primary btn-catalogue"(click)="onAddClick(p.id, p.nom, p.categorie, p.prix, p.taille, p.src)">Ajouter au panier</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  <!--<div class="d-flex align-items-stretch" *ngFor="let p of produitsFiltres">
+  <div class="card mt-5">
+    <div class="card-block card-produit">
+      <img class="card-img-top image" src='../../../../assets/images/{{p.src}}' alt="Card image cap">
+      <h4 class="card-title">{{p.nom}} <span class='categorie'>({{p.categorie}})</span></h4> 
+      <p class="card-text">Prix : {{p.prix}}€</p>
+      <button [routerLink]="['detail', p.id]" type="button" class="btn btn-secondary btn-catalogue">Voir détails</button>
+      <button  type="button" class="btn btn-primary btn-catalogue"(click)="onAddClick(p.id, p.nom, p.categorie, p.prix, p.taille, p.src)">Ajouter au panier</button>
+    </div>
+  </div> 
+  </div> -->
+<!--</div>-->
+<div *ngIf="isEmpty" class="alert alert-primary">Aucun produit trouvé.</div>

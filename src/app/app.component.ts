@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Client } from './client.model';
+import { Client } from '../models/client.model';
 
 @Component({
   selector: 'app-root',

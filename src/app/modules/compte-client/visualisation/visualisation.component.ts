@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Client } from '../client.model';
+import { Client } from '../../../../models/client.model';
 import { Data } from '../form-client/dataProvider';
 
 @Component({
