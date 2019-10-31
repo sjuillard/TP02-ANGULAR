@@ -4,4 +4,5 @@ export class Produit {
     prix : number;
     taille : string;
     categorie : string;
+    src: string;
 }

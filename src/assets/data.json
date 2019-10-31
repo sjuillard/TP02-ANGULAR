@@ -4,27 +4,31 @@
         "nom" : "Pull Sool",
         "prix" : "45",
         "taille" : "L",
-        "categorie" : "pull"
+        "categorie" : "pull",
+        "src" : "pull_sool.jpg"
     },
     {
         "id" : "002",
         "nom": "T-Shirt Sool",
         "prix" : "15",
         "taille" : "L",
-        "categorie" : "tshirt"
+        "categorie" : "tshirt",
+        "src" : "tshirt_sool.jpg"
     },
     {
         "id" : "003",
         "nom" : "Veste Sool",
         "prix" : "70",
         "taille" : "L",
-        "categorie" : "veste"
+        "categorie" : "veste",
+        "src" : "veste_sool.jpg"
     },
     {
         "id" : "004",
         "nom": "Pantalon Sool",
         "prix" : "35",
         "taille" : "L",
-        "categorie" : "pantalon"
+        "categorie" : "pantalon",
+        "src" : "pantalon_sool.jpg"
     }
 ]

@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { FiltreProduitsComponent } from './filtre-produits/filtre-produits.component';
 import { ListeProduitsComponent } from './liste-produits/liste-produits.component';
-import { DetailProduitComponent } from './detail-produit/detail-produit.component';
+import { DetailProduitComponent } from './detail-produit/detail-produit/detail-produit.component';
 import { Data } from '../compte-client/form-client/dataProvider';
 
 const routes: Routes = [
@@ -32,7 +32,7 @@ const routes: Routes = [
     ReactiveFormsModule
   ],
   exports: [ 
-    RouterModule 
+    RouterModule
   ],
   providers: [
     Data

@@ -47,11 +47,11 @@ export class ListeProduitsComponent implements OnInit {
       this.isEmpty = true;
   }
 
-  onAddClick(id, nom, categorie, prix, taille)  {
-    this.addProduit(id, nom, prix, categorie, taille);
+  onAddClick(id, nom, categorie, prix, taille, src)  {
+    this.addProduit(id, nom, prix, categorie, taille, src);
   }
   
-  addProduit(id, nom, prix, categorie, taille) { 
-    this.store.dispatch(new AddProduit({id, nom, prix, categorie, taille})); 
+  addProduit(id, nom, prix, categorie, taille, src) { 
+    this.store.dispatch(new AddProduit({id, nom, prix, categorie, taille, src})); 
   }
 }

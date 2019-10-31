@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
-import { DetailProduitComponent } from './detail-produit.component';
+import { DetailProduitComponent } from './detail-produit/detail-produit.component';
 
 const routes: Routes = [
   {
