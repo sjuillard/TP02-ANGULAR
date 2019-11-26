@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  produits : '/assets/data.json'
+  produits : 'http://node16.codenvy.io:43061/TP02-ANGULAR/back/index.php/produits'
 };
 
 /*

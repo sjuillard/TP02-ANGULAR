@@ -10,5 +10,4 @@ export class Client {
     email: string = "";
     login: string = "";
     password: string = "";
-
 }
