@@ -10,6 +10,7 @@ import { PanierState } from '../../shared/states/panier-state';
 import { CompteClientModule } from './modules/compte-client/compte-client.module';
 import { Routes, RouterModule } from '@angular/router';
 import { AccueilComponent } from './accueil/accueil.component';
+import { LoginComponent } from './modules/login/login.component';
 
 const routes: Routes = [
   {
@@ -24,9 +25,10 @@ const routes: Routes = [
     path: 'catalogue',
     loadChildren: () => import('./modules/catalogue/catalogue.module').then(m => m.CatalogueModule)
   },
-  /*{path: 'formClient', component: FormClientComponent},*/
-  /*{path: 'visualisation', component: VisualisationComponent},*/
-  /*{path: 'listeProduits', component: ListeProduitsComponent},*/
+  {
+    path: 'login',
+    component: LoginComponent
+  }, 
   {
     path: 'panier', 
     loadChildren: () => import('./modules/panier/panier.module').then(m => m.PanierModule)
@@ -39,7 +41,8 @@ const routes: Routes = [
     AppComponent,
     TetiereComponent,
     FooterComponent,
-    AccueilComponent
+    AccueilComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

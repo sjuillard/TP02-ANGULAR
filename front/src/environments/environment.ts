@@ -4,7 +4,10 @@
 
 export const environment = {
   production: false,
-  produits : 'http://node16.codenvy.io:43061/TP02-ANGULAR/back/index.php/produits'
+  produits : 'http://node21.codenvy.io:44331/TP02-ANGULAR/back/index.php/produits',
+  addClient : 'http://node21.codenvy.io:44331/TP02-ANGULAR/back/index.php/client',
+  getClient: 'http://node21.codenvy.io:44331/TP02-ANGULAR/back/index.php/getclient',
+  login: 'http://node21.codenvy.io:44331/TP02-ANGULAR/back/index.php/login'
 };
 
 /*

@@ -3,6 +3,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms'
 import { Router, ActivatedRoute } from "@angular/router";
 import {Client} from "../../../../models/client.model";
 import { Data } from './dataProvider'
+import { ListeProduitsService } from '../../catalogue/liste-produits/liste-produits.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-form-client',
@@ -13,10 +15,10 @@ export class FormClientComponent implements OnInit {
   
   estEnvoye: boolean = false;
   formClient : FormGroup;
-  @Input() client: Client;
-  @Output() submitForm: EventEmitter<Client> = new EventEmitter<Client>();
+  client : Client;
+  createdClient : Observable<Client>;
 
-  constructor(private router: Router, private data: Data, private route: ActivatedRoute) { 
+  constructor(private router: Router, private data: Data, private route: ActivatedRoute,  private service : ListeProduitsService) { 
     this.formClient = new FormGroup( {
       nom: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z]*$')]),
       prenom: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z]*$')]),
@@ -54,11 +56,11 @@ export class FormClientComponent implements OnInit {
     this.client.email=this.formClient.controls["email"].value;
     this.client.login=this.formClient.controls["login"].value;
     this.client.password=this.formClient.controls["password"].value;
+    this.estEnvoye = true;
 
-    console.log(this.client);
-    
-    this.submitForm.emit(this.client);
-    this.data.storage = this.client;
-    this.router.navigate(['/formClient/visualisation']);
+    /*this.submitForm.emit(this.client);
+    this.data.storage = this.client;*/
+    this.createdClient = this.service.addClient(this.client);
+    /*this.router.navigate(['/modules/compte-client/visualisation']);*/
   }
 }

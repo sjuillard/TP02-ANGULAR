@@ -1,0 +1,11 @@
+<form (ngSubmit)='onSubmit()' style="margin-left: 5vw;">
+    <div [formGroup]="form">
+        <label>Nom d'utilisateur </label>
+        <input formControlName="login" name="nomUtilisateur" class="form-control" required />
+        <br>
+        <label>Mot de passe </label>
+        <input formControlName="motDePasse" name="motDePasse" class="form-control" required />
+        <br>
+        <input type="submit" class="btn btn-primary"/>
+    </div>
+</form>
