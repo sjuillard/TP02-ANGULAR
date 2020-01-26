@@ -1,9 +1,13 @@
 <?php
-require 'vendor/autoload.php';
 
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 use \Firebase\JWT\JWT;
+use Doctrine\ORM\Tools\Setup;
+use Doctrine\ORM\EntityManager;
+
+require 'vendor/autoload.php';
+require_once "bootstrap.php";
 
 const CLE = "cledeswann";
 
