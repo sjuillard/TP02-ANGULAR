@@ -70,7 +70,7 @@ function login ($request, $response, $args) {
     $data = array("erreur" => 'Erreur!', 'token' => "Erreur de login");
     return $response->withJson($data);
 }
-$app->post('/login', login);
+$app->post('/login', 'login');
 
 function setHeader($response) {
     return $response->withHeader("Access-Control-Allow-Origin", "*")->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
@@ -78,9 +78,9 @@ function setHeader($response) {
 
 function getProduits($resquest,$response,$args)  
 {
-    $url = 'data.json'; // path to your JSON file
-    $data = file_get_contents($url);
-    return $response->write($data);              
+    require_once("get_articles.php");
+
+    return $response->write($articles);              
 }
 
 function addClient($request,$response,$args) {
