@@ -78,9 +78,9 @@ function setHeader($response) {
 
 function getProduits($resquest,$response,$args)  
 {
-    $url = 'data.json'; // path to your JSON file
-    $data = file_get_contents($url);
-    return $response->write($data);              
+    require_once("get_articles.php");
+
+    return $response->write($articles);              
 }
 
 function addClient($request,$response,$args) {
