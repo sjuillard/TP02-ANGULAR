@@ -1,2 +1,1 @@
-back/composer.phar
-back/vendor/*
+**/vendor
