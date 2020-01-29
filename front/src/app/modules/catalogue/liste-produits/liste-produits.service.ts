@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Output, EventEmitter } from '@angular/core';
 import {Produit} from '../../../../models/produit.model';
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators'
 import { environment } from '../../../../environments/environment';
@@ -18,8 +18,13 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class ListeProduitsService {
+  getEmitter() {
+    return this.fireIsLoggedIn;
+  }
 
   constructor(private httpClient : HttpClient, private route :  ActivatedRoute, private router : Router) { }
+
+  @Output() fireIsLoggedIn: EventEmitter<any> = new EventEmitter<any>();
 
   getToken(login : string, mdp : string) {
     let data = JSON.stringify({
@@ -33,16 +38,15 @@ export class ListeProduitsService {
     };
     this.httpClient.post<Object>(environment.login,data, httpOptions)
     .subscribe(dataReturned => {
-      console.log(dataReturned);
       let data = dataReturned[0];
-      console.log(data);
-      sessionStorage.setItem("token", data['token']);
-      sessionStorage.setItem("idClient", data['idClient']);
-      this.router.navigate([''], { relativeTo: this.route});
+      if(data["idClient"]!=null && data["token"]!=null) {
+        sessionStorage.setItem("token", data['token']);
+        sessionStorage.setItem("idClient", data['idClient']);
+        this.fireIsLoggedIn.emit("connected");
+        this.router.navigate([''], { relativeTo: this.route}); 
+      }
     });
   }
-
-  
   
   getProduits() : Observable<Produit[]>
   {
@@ -51,7 +55,8 @@ export class ListeProduitsService {
 
   getClient() : Observable<Client>
   {
-    return this.httpClient.get<Client>(environment.getClient).pipe(catchError(this.handleError));
+    const params = new HttpParams().set('id', sessionStorage.getItem("idClient"));
+    return this.httpClient.get<Client>(environment.getClient, {params});
   }
 
   private handleError(error: HttpErrorResponse) {
@@ -79,7 +84,8 @@ export class ListeProduitsService {
 
     let newC = this.httpClient
     .post<Client>(environment.addClient, client, httpOptions);
-    newC.subscribe(a => sessionStorage.setItem("idClient", ""+a.id));
+    newC.subscribe(a => { sessionStorage.setItem("idClient", ""+a.id);
+    this.fireIsLoggedIn.emit("connected");});
     return newC;
   }
 
@@ -96,8 +102,13 @@ export class ListeProduitsService {
       a++;
     });
     let data = {idClient: idClient, idArticles: idArticles};
-    console.log(data);
-    this.httpClient.post<Object>(environment.postCommande, data, httpOptions)
-      .subscribe(u => console.log(u));
+    this.httpClient.post<Object>(environment.postCommande, data, httpOptions);
+  }
+
+  checkClientConnected() : boolean {
+    if(sessionStorage.getItem("idClient")==null || sessionStorage.getItem("idClient")==undefined) {
+      return false;
+    }
+    return true;
   }
 }

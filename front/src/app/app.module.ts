@@ -33,6 +33,10 @@ const routes: Routes = [
     path: 'panier', 
     loadChildren: () => import('./modules/panier/panier.module').then(m => m.PanierModule)
   },
+  {
+    path: 'tetiere',
+    component: TetiereComponent
+  }
   /*{path: 'detail/:nom/:prix/:taille/:categorie', component: DetailProduitComponent}*/
 ];
 

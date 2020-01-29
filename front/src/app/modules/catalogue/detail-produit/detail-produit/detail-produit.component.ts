@@ -20,17 +20,23 @@ export class DetailProduitComponent implements OnInit {
   prix : number;
   taille : string = "";
   src: string = "";
+  isConnected : boolean;
 
-  constructor(private route : ActivatedRoute, private store : Store, public listeProduitsService : ListeProduitsService) {
+  constructor(private route : ActivatedRoute, private store : Store, public service : ListeProduitsService) {
+    //on récupère l'id
     let id = this.route.snapshot.paramMap.get('id');
-    this.listeProduitsService.getProduits().subscribe((items) => 
+    //on récupère l'article souhaité avec son id
+    this.service.getProduits().subscribe((items) => 
     {
       this.selectedArticle = items.find(art => art.id==id)
     });
+    // on check si un client est connecté
+    this.isConnected = this.service.checkClientConnected();
   }
 
   ngOnInit() {
-    
+    // on check si un client est connecté
+    this.isConnected = this.service.checkClientConnected();
   }
   
   onAddClick(id, nom, categorie, prix, taille, src)  {

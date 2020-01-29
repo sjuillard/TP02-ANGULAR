@@ -7,6 +7,7 @@ export const environment = {
   produits : 'http://localhost/TP02-ANGULAR/back/index.php/produits',
   addClient : 'http://localhost/TP02-ANGULAR/back/index.php/client',
   getClient: 'http://localhost/TP02-ANGULAR/back/index.php/getclient',
+  getClientById: 'http://localhost/TP02-ANGULAR/back/index.php/getclientbyid',
   login: 'http://localhost/TP02-ANGULAR/back/index.php/login',
   postCommande: 'http://localhost/TP02-ANGULAR/back/index.php/postcommande'
 };

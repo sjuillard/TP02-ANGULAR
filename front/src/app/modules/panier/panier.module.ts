@@ -24,7 +24,7 @@ const routes: Routes = [
     CommandeComponent
   ],
   imports: [
-    RouterModule.forChild(routes, {onSameUrlNavigation: 'reload'}),
+    RouterModule.forChild(routes),
     CommonModule,
     HttpClientModule,
     FormsModule,

@@ -1,24 +1,32 @@
-<h1>Votre commande</h1>
-<div>
-    <div >
-        <table>
-            <thead>
-                <tr>
-                    <th>Nom</th>
-                    <th>Prix</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let a of articles | async">
-                    <td>{{a.nom}}</td>
-                    <td ng-init="total += a.prix">{{a.prix}} €
-                </tr>
-                <tr>
-                    <th>Total</th>
-                    <th>{{total | async}}</th>
-                </tr>
-            </tbody>
-        </table>
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col-md-6">
+            <h1 class="titre">Récapitulatif de votre commande</h1>
+            <div class="commande">
+                
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nom</th>
+                            <th scope="col">Prix</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let a of articles | async">
+                            <td scope="row">{{a.nom}}</td>
+                            <td scope="row">{{a.prix}} €
+                        </tr>
+                        <tr>
+                            <td><b>Total</b></td>
+                            <td><b>{{total | async}} €</b></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="row">
+                <Button class="btn btn-success" (click)="validerCommande()">Valider ma commande</Button>
+            </div>
+            
+        </div>
     </div>
 </div>
-<Button (click)="validerCommande()">Valider ma commande</Button>

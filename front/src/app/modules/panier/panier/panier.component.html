@@ -1,4 +1,8 @@
-<h1 class='title'>Panier <Button *ngIf="!isEmpty" class="btn btn-success" [routerLink]="['commande']" routerLinkActive="active">Commander</Button></h1>
+<h1 class='title'>Panier </h1>
+<h1 class='title'>
+    <Button *ngIf="!isEmpty" class="btn btn-success" [routerLink]="['commande']" routerLinkActive="active">Commander</Button>
+</h1>
+<br><br>
 <div class="card-deck content">
     <div class="d-flex align-items-stretch" *ngFor="let p of articles | async">
         <div class="card mt-5">
@@ -6,9 +10,16 @@
             <img class="card-img-top image" src='../../../../assets/images/{{p.src}}' alt="Card image cap">
             <h4 class="card-title">{{p.nom}} <span class='categorie'>({{p.categorie}})</span></h4> 
             <p class="card-text">Taille : {{p.taille}} <br/> Prix : {{p.prix}}€</p>
-            <button (click)="onDelClick(p)" type="button" class="btn btn-danger btn-suppr">Supprimer du panier</button>
+            <button (click)="onDelClick(p)" type="button" class="btn btn-danger btn-suppr"><img alt="svgImg" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4Igp3aWR0aD0iMjQiIGhlaWdodD0iMjQiCnZpZXdCb3g9IjAgMCAyNCAyNCIKc3R5bGU9IiBmaWxsOiMwMDAwMDA7Ij48cGF0aCBkPSJNIDEwIDIgTCA5IDMgTCAzIDMgTCAzIDUgTCAyMSA1IEwgMjEgMyBMIDE1IDMgTCAxNCAyIEwgMTAgMiB6IE0gNC4zNjUyMzQ0IDcgTCA2LjA2ODM1OTQgMjIgTCAxNy45MzE2NDEgMjIgTCAxOS42MzQ3NjYgNyBMIDQuMzY1MjM0NCA3IHoiPjwvcGF0aD48L3N2Zz4="></button>
             </div>
         </div> 
     </div>
 </div>
-<div *ngIf="isEmpty" class="alert alert-primary">Le panier est vide.</div>
+
+<div *ngIf="isEmpty" class="container">
+    <div class="row justify-content-md-center">
+        <div class="col-md-8">
+            <div class="alert alert-primary">Le panier est vide.</div>
+        </div>
+    </div>
+</div>

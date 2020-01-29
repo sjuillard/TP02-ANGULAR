@@ -47,6 +47,7 @@ $app->add($jwt);
 $app->get('/produits', 'getProduits');
 
 $app->get('/getclient', 'getClient');
+$app->get('/getclientbyid', 'getClientById');
 $app->post('/client', 'addClient');
 $app->put('/client/{id}', 'updateClient');
 $app->delete('/client/{id}', 'deleteClient');
@@ -127,6 +128,8 @@ function addClient($request,$response,$args) {
     $client->setEmail($body['email']);
     $client->setLogin($body['login']);
     $client->setPassword(password_hash($body['password'], PASSWORD_DEFAULT));
+    $entityManager->persist($client);
+    $entityManager->flush();
     $data = array(
         "id" => $client->getId(),
         "nom" => $client->getNom(),
@@ -141,8 +144,6 @@ function addClient($request,$response,$args) {
         "login" => $client->getLogin(),
         "password" => $client->getPassword()
     );
-    $entityManager->persist($client);
-    $entityManager->flush();
     return $response->write(json_encode($data));
 }
 

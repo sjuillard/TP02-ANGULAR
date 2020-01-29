@@ -1,14 +1,20 @@
 
 <div class="container">
     <div class="row justify-content-md-center">
-            <div class="col col-lg-6">
-                <h4>Descriptif produit</h4>
-                <img class="image" src='../../../../../assets/images/{{selectedArticle.src}}' />
-                <p>Catégorie : {{selectedArticle.categorie}}</p>
-                <p>Nom : {{selectedArticle.nom}}</p>
-                <p>Prix : {{selectedArticle.prix}} €</p>
-                <p>Taille : {{selectedArticle.taille}}</p>
-                <button class="btn btn-primary" (click)="onAddClick(selectedArticle.id, selectedArticle.nom, selectedArticle.categorie, selectedArticle.prix, selectedArticle.taille, selectedArticle.src)">Ajouter au panier</button>
+        <div class="col-md-6">
+            <div class="row justify-content-md-center">
+                <div class="col-md-12">
+                    <h4>Descriptif produit</h4>
+                    <img class="image" src='../../../../../assets/images/{{selectedArticle.src}}' />
+                    <p><b>Catégorie</b> | {{selectedArticle.categorie}}</p>
+                    <p><b>Nom</b> | {{selectedArticle.nom}}</p>
+                    <p><b>Prix</b> | {{selectedArticle.prix}} €</p>
+                    <p><b>Taille</b> | {{selectedArticle.taille}}</p>
+                    <button [disabled]="!isConnected" class="btn btn-primary" (click)="onAddClick(selectedArticle.id, selectedArticle.nom, selectedArticle.categorie, selectedArticle.prix, selectedArticle.taille, selectedArticle.src)">Ajouter au panier</button>
+                </div>
+                   
             </div>
+           
+        </div>
     </div>
 </div>

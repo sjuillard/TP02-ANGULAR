@@ -21,7 +21,7 @@ const routes: Routes = [
     PhoneNumberPipe
   ],
   imports: [
-    RouterModule.forChild(routes, {onSameUrlNavigation: 'reload'}),
+    RouterModule.forChild(routes),
     CommonModule,
     HttpClientModule,
     FormsModule,

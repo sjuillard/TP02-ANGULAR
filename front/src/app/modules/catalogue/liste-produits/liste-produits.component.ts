@@ -15,18 +15,20 @@ export class ListeProduitsComponent implements OnInit {
   public produits : Produit[] = [];
   private produitsFiltres : Produit[] = [];
   public isEmpty : boolean = false;
+  isConnected : boolean;
 
   @Input() filtre : String; 
 
-  constructor(public listeProduitsService : ListeProduitsService, private store : Store) { }
+  constructor(public service : ListeProduitsService, private store : Store) { }
 
   ngOnInit() {
-    this.listeProduitsService.getProduits().subscribe(response => {
-      /*console.log(response);*/
+    //on rempli les listes de produit
+    this.service.getProduits().subscribe(response => {
       this.produits = response;
       this.produitsFiltres = response; 
-      /*console.log(this.produits);*/
     });
+    // on check si l'utilisateur est connecté
+    this.isConnected = this.service.checkClientConnected();
   }
 
   rechercherParNom(leFiltre : string) {
@@ -48,11 +50,13 @@ export class ListeProduitsComponent implements OnInit {
       this.isEmpty = true;
   }
 
+  //au clic du bouton ajouter
   onAddClick(id, nom, categorie, prix, taille, src)  {
     this.addProduit(id, nom, prix, categorie, taille, src);
   }
   
   addProduit(id, nom, prix, categorie, taille, src) { 
+    //on ajoute le produit au panier
     this.store.dispatch(new AddProduit({id, nom, prix, categorie, taille, src})); 
   }
 }

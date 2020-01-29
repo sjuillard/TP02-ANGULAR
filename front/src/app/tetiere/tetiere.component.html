@@ -3,16 +3,17 @@
       <a [routerLink]="['/']" routerLinkActive="active">Accueil</a>
     </li>
     <li>
-      <a [routerLink]="['login']" routerLinkActive="active" *ngIf="!isConnected">Login</a>
-      <a [routerLink]="['/']" *ngIf="isConnected" (click)="deconnexion()">Se déconnecter</a>
-    </li>
-    <li>
-      <a [routerLink]="['espaceclient']" routerLinkActive="active" *ngIf="isConnected">Espace Client</a>
-    </li>
-    <li>
       <a [routerLink]="['catalogue']" routerLinkActive="active">Catalogue</a>
     </li>
     <li>
-        <a [routerLink]="['panier']" routerLinkActive="active">Panier ({{nbArticles}})</a>
+        <a *ngIf="isConnected" [routerLink]="['panier']" routerLinkActive="active">Panier ({{nbArticles}})</a>
+    </li>
+    <li>
+      <a [routerLink]="['espaceclient', 'visualisation']" routerLinkActive="active" *ngIf="isConnected">Espace Client</a>
+      <a [routerLink]="['espaceclient']" routerLinkActive="active" *ngIf="!isConnected">S'inscrire</a>
+    </li>
+    <li>
+      <a [routerLink]="['login']" routerLinkActive="active" *ngIf="!isConnected">Login</a>
+      <a [routerLink]="['/']" *ngIf="isConnected" (click)="deconnexion()">Se déconnecter</a>
     </li>
 </ul>

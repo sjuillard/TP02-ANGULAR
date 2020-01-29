@@ -1,24 +1,49 @@
-<div>
-    <h2>Vos informations</h2>
-    <label>Nom: {{client.nom}}</label>
-    <br>
-    <Label>Pr&eacute;nom : {{client.prenom}}</Label>
-    <br>
-    <Label>Cvilit&eacute; : {{client.civilite}}</Label>
-    <br>
-    <Label>Adresse : {{client.adresse}}</Label>
-    <br>
-    <Label>Ville: {{client.ville}}</Label>
-    <br>
-    <Label>Code Postale : {{client.cp}}</Label>
-    <br>
-    <Label>T&eacute;l&eacute;phone : {{client.telephone | phoneNumber}}</Label>
-    <br>
-    <Label>Pays : {{client.pays}}</Label>
-    <br>
-    <Label>Email : {{client.email}}</Label>
-    <br>
-    <Label>Login : {{client.login}}</Label>
-    <br>
-    <Label>Mot de passe : {{client.login}}</Label>
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col-md-10 div-principal">
+            <h2>Vos informations</h2>
+            <table class="table" *ngIf="client">
+                <tr class="row">
+                    <td><b>Nom</b></td>
+                    <td>{{client.nom }}</td>
+                </tr>
+                <tr class="row">
+                    <td><b>Pr&eacute;nom</b></td>
+                    <td>{{client.prenom }}</td>
+                </tr>
+                <tr class='row'>
+                    <td><b>Civilit&eacute;</b></td>
+                    <td>{{client.civilite }}</td>
+                </tr>
+                <tr class="row">
+                    <td><b>Adresse</b></td>
+                    <td>{{client.adresse }}</td>
+                </tr>
+                <tr class="row">
+                    <td><b>Ville</b></td>
+                    <td>{{client.ville }}</td>
+                </tr>
+                <tr class="row">
+                    <td><b>Code Postale</b></td>
+                    <td>{{client.cp }}</td>
+                </tr>
+                <tr class="row">
+                    <td><b>T&eacute;l&eacute;phone</b></td>
+                    <td> {{client.telephone | phoneNumber}}</td>
+                </tr>
+                <tr class="row">
+                    <td><b>Pays</b></td>
+                    <td>{{client.pays }}</td>
+                </tr>
+                <tr class="row">
+                    <td><b>Email</b></td>
+                    <td>{{client.email }}</td>
+                </tr>
+                <tr class="row">
+                    <td><b>Login</b></td>
+                    <td>{{client.login }}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
 </div>

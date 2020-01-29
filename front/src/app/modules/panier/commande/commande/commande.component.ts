@@ -6,6 +6,7 @@ import { DelProduit } from 'shared/actions/delProduit-action';
 import { DelAllProduit } from 'shared/actions/delAllProduit-action';
 import { map } from 'rxjs/operators';
 import { ListeProduitsService } from 'src/app/modules/catalogue/liste-produits/liste-produits.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-commande',
@@ -16,23 +17,26 @@ export class CommandeComponent implements OnInit {
   nbArticles : number;
   articles : Observable<Produit[]>;
   lesArticles : Produit[];
-  total : number = 0;
+  total : Observable<Number>;
 
-  constructor(private store: Store, private service : ListeProduitsService) {
-    this.store.select(state => state.panier.panier).forEach(a => this.total += a.prix);
+  constructor(private store: Store, private service : ListeProduitsService, private route : ActivatedRoute, private router : Router) {;
+    //on stock les articles
     this.articles = this.store.select(state => state.panier.panier);
+    //on calcule le prix total du panier
+    this.total = this.articles.pipe(map(order => order.reduce((total, price) => total + (+price.prix), 0)));
+    //on regarde combien d'article on a
     this.store.select(state => state.panier.panier).subscribe (u => { this.nbArticles = u.length; this.lesArticles = u;});
   }
 
   ngOnInit() {
-    this.total = 0;
   }
 
   validerCommande() {
-    let idClient = sessionStorage.getItem("idClient");
-    console.log(idClient);
-    //this.service.postCommande(idClient, this.lesArticles); 
-    
-    //this.store.dispatch(new DelAllProduit());
+    //on poste la commande (NE FONCTIONNE PAS)
+    this.service.postCommande(sessionStorage.getItem("idClient"), this.lesArticles); 
+    //on supprime les articles du panier
+    this.store.dispatch(new DelAllProduit());
+    //on retourne sur le panier
+    this.router.navigate(['panier']);
   }
 }

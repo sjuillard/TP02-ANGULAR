@@ -7,10 +7,13 @@ $commandes = $repository->findAll();
 
 foreach ($commandes as $commande) {
 
-    echo sprintf("Commande n°%s \nClient:%s %s\n", 
-        $commande->getId(), 
+    echo sprintf("Commande n°%s\n", 
+        $commande->getId()); 
+    if($commande->getClient()!=null) {
+        echo sprintf("Client:%s %s\n",
         $commande->getClient()->getNom(),
         $commande->getClient()->getPrenom());
+    }
     echo sprintf("Produits: \n");
     $articles = $commande->getArticles();
     foreach($articles as $article) {

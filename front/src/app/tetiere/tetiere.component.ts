@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngxs/store';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
+import { ListeProduitsService } from '../modules/catalogue/liste-produits/liste-produits.service';
 
 @Component({
   selector: 'app-tetiere',
@@ -12,41 +13,27 @@ export class TetiereComponent implements OnInit {
   nbArticles : number;
   isConnected : boolean;
   nom: string;
-  mySubscription: any;
 
-  constructor(private store : Store, private route : ActivatedRoute, private router : Router) { 
-    this.checkClientConnected();
+  constructor(private store : Store, private route : ActivatedRoute, private router : Router, private service : ListeProduitsService) { 
+    this.isConnected = this.service.checkClientConnected();
     this.store.select(state => state.panier.panier).subscribe (u => this.nbArticles = u.length);
 
   }
 
-  ngOnDestroy() {
-    if (this.mySubscription) {
-      this.mySubscription.unsubscribe();
-    }
-  }
-
   ngOnInit() {
-    this.checkClientConnected();
+    this.service.getEmitter().subscribe((customObject) => {
+      this.isConnected = this.service.checkClientConnected();
+    });
   }
 
-  checkClientConnected() {
-    this.isConnected = true;
-    console.log(sessionStorage.getItem("idClient"));
-    if(sessionStorage.getItem("idClient")==null || sessionStorage.getItem("idClient")==undefined) {
-      this.isConnected = false;
-    }
-  }
-
-  ngOnChanges() {
-    // create header using child_id
-    console.log("nbArticle:"+this.nbArticles);
-  }
+  ngOnChanges() {}
 
   deconnexion() {
+    //on clear la session
     sessionStorage.clear();
-    console.log("Deconnexion ok");
-    this.checkClientConnected();
+    //on reload si le client est connecte ou pas
+    this.isConnected = false;
+    //on va sur la page de login
     this.router.navigate(['login'], { relativeTo: this.route});
   }
 }
