@@ -13,8 +13,8 @@ export class VisualisationComponent implements OnInit {
   client : Client;
 
   constructor(private data: Data, public listeProduitsService : ListeProduitsService) {
+    console.log(this.data.storage);
     this.client = this.data.storage;
-    listeProduitsService
    }
 
   ngOnInit() {

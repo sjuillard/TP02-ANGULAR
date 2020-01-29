@@ -1,6 +1,6 @@
 { 
     "/api": { 
-        "target": "http://node21.codenvy.io:44331",
+        "target": "http://localhost/TP02-ANGULAR/back/",
         "secure": false 
     }
 

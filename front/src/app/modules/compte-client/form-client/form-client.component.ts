@@ -18,7 +18,7 @@ export class FormClientComponent implements OnInit {
   client : Client;
   createdClient : Observable<Client>;
 
-  constructor(private router: Router, private data: Data, private route: ActivatedRoute,  private service : ListeProduitsService) { 
+  constructor(private router: Router, private route: ActivatedRoute,  private service : ListeProduitsService) { 
     this.formClient = new FormGroup( {
       nom: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z]*$')]),
       prenom: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z]*$')]),
@@ -60,7 +60,6 @@ export class FormClientComponent implements OnInit {
 
     /*this.submitForm.emit(this.client);
     this.data.storage = this.client;*/
-    this.createdClient = this.service.addClient(this.client);
-    /*this.router.navigate(['/modules/compte-client/visualisation']);*/
+    this.service.addClient(this.client).subscribe(a => this.router.navigate(['visualisation'], { relativeTo: this.route}));
   }
 }

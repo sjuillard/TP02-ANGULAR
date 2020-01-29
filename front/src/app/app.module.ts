@@ -52,7 +52,7 @@ const routes: Routes = [
     NgxsModule.forRoot(
       [PanierState]
     ),
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'})
   ],
   exports: [ 
     RouterModule 

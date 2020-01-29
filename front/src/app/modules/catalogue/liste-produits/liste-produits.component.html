@@ -1,12 +1,12 @@
 <h1 class='title'>Catalogue</h1>
 <app-filtre-produits (filter)="rechercherParNom($event)" ></app-filtre-produits>
 <!--<div class="card-deck content">-->
-  <div class="card mb-6 card-produit" *ngFor="let p of produitsFiltres">
+  <div class="card mb-8 card-produit" *ngFor="let p of produitsFiltres">
       <div class="row no-gutters">
-        <div class="col-md-4">
+        <div class="col-md-6">
           <img class="card-img image" src='../../../../assets/images/{{p.src}}' alt="image">
         </div>
-        <div class="col-md-8">
+        <div class="col-md-6">
           <div class="card-body">
             <h5 class="card-title">{{p.nom}}</h5>
             <p class="card-text">Prix : {{p.prix}}€</p>

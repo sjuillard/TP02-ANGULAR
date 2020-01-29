@@ -10,13 +10,8 @@ import { Data } from './form-client/dataProvider';
 import { FiltreProduitsComponent } from '../catalogue/filtre-produits/filtre-produits.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: FormClientComponent,
-    children : [
-      { path: 'visualisation', component: VisualisationComponent, }
-    ]
-  }
+    { path: '', component: FormClientComponent}, 
+    { path: 'visualisation', component: VisualisationComponent }
 ];
 
 @NgModule({
@@ -26,7 +21,7 @@ const routes: Routes = [
     PhoneNumberPipe
   ],
   imports: [
-    RouterModule.forChild(routes),
+    RouterModule.forChild(routes, {onSameUrlNavigation: 'reload'}),
     CommonModule,
     HttpClientModule,
     FormsModule,

@@ -4,10 +4,11 @@
 
 export const environment = {
   production: false,
-  produits : 'http://node21.codenvy.io:44331/TP02-ANGULAR/back/index.php/produits',
-  addClient : 'http://node21.codenvy.io:44331/TP02-ANGULAR/back/index.php/client',
-  getClient: 'http://node21.codenvy.io:44331/TP02-ANGULAR/back/index.php/getclient',
-  login: 'http://node21.codenvy.io:44331/TP02-ANGULAR/back/index.php/login'
+  produits : 'http://localhost/TP02-ANGULAR/back/index.php/produits',
+  addClient : 'http://localhost/TP02-ANGULAR/back/index.php/client',
+  getClient: 'http://localhost/TP02-ANGULAR/back/index.php/getclient',
+  login: 'http://localhost/TP02-ANGULAR/back/index.php/login',
+  postCommande: 'http://localhost/TP02-ANGULAR/back/index.php/postcommande'
 };
 
 /*

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ListeProduitsService } from '../catalogue/liste-produits/liste-produits.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -24,7 +25,7 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     let login = this.form.controls['login'].value;
     let mdp = this.form.controls['motDePasse'].value;
-    console.log(this.service.getToken(login, mdp));
+    this.service.getToken(login, mdp);
   }
 
   

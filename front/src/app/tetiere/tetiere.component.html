@@ -3,10 +3,11 @@
       <a [routerLink]="['/']" routerLinkActive="active">Accueil</a>
     </li>
     <li>
-      <a [routerLink]="['login']" routerLinkActive="active">Login</a>
+      <a [routerLink]="['login']" routerLinkActive="active" *ngIf="!isConnected">Login</a>
+      <a [routerLink]="['/']" *ngIf="isConnected" (click)="deconnexion()">Se déconnecter</a>
     </li>
     <li>
-      <a [routerLink]="['espaceclient']" routerLinkActive="active">Espace Client</a>
+      <a [routerLink]="['espaceclient']" routerLinkActive="active" *ngIf="isConnected">Espace Client</a>
     </li>
     <li>
       <a [routerLink]="['catalogue']" routerLinkActive="active">Catalogue</a>

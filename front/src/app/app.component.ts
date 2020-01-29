@@ -7,11 +7,16 @@ import { Client } from '../models/client.model';
   styleUrls: ['./app.component.less']
 })
 export class AppComponent {
-  title = 'TP02-Angular';
+  title = 'Sool Technologies';
 
   client: Client = new Client();
+  isConnected : boolean = false;
 
   onClientRegister(client: Client) {
     this.client = client;
+  }
+
+  connectUser() {
+    this.isConnected = true;
   }
 }

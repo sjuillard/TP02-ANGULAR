@@ -5,20 +5,26 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { FiltreProduitsComponent } from '../catalogue/filtre-produits/filtre-produits.component';
 import { PanierComponent } from './panier/panier.component';
+import { CommandeComponent } from './commande/commande/commande.component';
 
 const routes: Routes = [
   {
     path: '',
     component: PanierComponent
+  },
+  {
+    path: 'commande',
+    component: CommandeComponent
   }
 ];
 
 @NgModule({
   declarations: [
-    PanierComponent
+    PanierComponent,
+    CommandeComponent
   ],
   imports: [
-    RouterModule.forChild(routes),
+    RouterModule.forChild(routes, {onSameUrlNavigation: 'reload'}),
     CommonModule,
     HttpClientModule,
     FormsModule,

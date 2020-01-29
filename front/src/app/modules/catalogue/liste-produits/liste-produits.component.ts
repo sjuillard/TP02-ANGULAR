@@ -3,6 +3,7 @@ import { ListeProduitsService } from './liste-produits.service';
 import { Produit } from '../../../../models/produit.model';
 import { Store } from '@ngxs/store';
 import { AddProduit } from '../../../../../shared/actions/produit-action';
+import { defaultIfEmpty, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-liste-produits',
@@ -21,11 +22,11 @@ export class ListeProduitsComponent implements OnInit {
 
   ngOnInit() {
     this.listeProduitsService.getProduits().subscribe(response => {
-        this.produits = response;
-        this.produitsFiltres = response; 
-        console.log(this.produits);
-      }
-    ); 
+      /*console.log(response);*/
+      this.produits = response;
+      this.produitsFiltres = response; 
+      /*console.log(this.produits);*/
+    });
   }
 
   rechercherParNom(leFiltre : string) {

@@ -1,0 +1,24 @@
+<h1>Votre commande</h1>
+<div>
+    <div >
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Prix</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let a of articles | async">
+                    <td>{{a.nom}}</td>
+                    <td ng-init="total += a.prix">{{a.prix}} €
+                </tr>
+                <tr>
+                    <th>Total</th>
+                    <th>{{total | async}}</th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<Button (click)="validerCommande()">Valider ma commande</Button>

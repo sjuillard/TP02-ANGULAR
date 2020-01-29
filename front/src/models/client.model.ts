@@ -1,4 +1,5 @@
 export class Client {
+    id: number;
     prenom: string = "";
     nom: string = "";
     civilite: string = "";

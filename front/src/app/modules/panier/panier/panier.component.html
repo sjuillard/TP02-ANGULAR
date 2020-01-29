@@ -1,4 +1,4 @@
-<h1 class='title'>Panier</h1>
+<h1 class='title'>Panier <Button *ngIf="!isEmpty" class="btn btn-success" [routerLink]="['commande']" routerLinkActive="active">Commander</Button></h1>
 <div class="card-deck content">
     <div class="d-flex align-items-stretch" *ngFor="let p of articles | async">
         <div class="card mt-5">
@@ -9,16 +9,6 @@
             <button (click)="onDelClick(p)" type="button" class="btn btn-danger btn-suppr">Supprimer du panier</button>
             </div>
         </div> 
-        </div>
-    <!--<div class="col-4 d-flex align-items-stretch" *ngFor="let p of articles | async">
-        <div class="card mt-5">
-            <div class="card-block">
-                <h4 class="card-title">{{p.nom}} <span class='categorie'>({{p.categorie}})</span></h4> 
-                
-                <p class="card-text">Taille : {{p.taille}} <br/> Prix : {{p.prix}}€</p>
-                <button (click)="onDelClick(p)" type="button" class="btn btn-danger btn-suppr">Supprimer du panier</button>
-            </div>
-        </div> 
-    </div>-->
+    </div>
 </div>
 <div *ngIf="isEmpty" class="alert alert-primary">Le panier est vide.</div>
